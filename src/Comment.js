@@ -14,18 +14,15 @@ class Comment extends Component {
 
     updateComment = (e) => {
         e.preventDefault();
-        //brings up the update field when we click on the update link.
         this.setState({ toBeUpdated: !this.state.toBeUpdated });
     }
     handleCommentUpdate = (e) => {
         e.preventDefault();
-        let id = this.props.uniqueID;
-        //if author or text changed, set it. if not, leave null and our PUT request
-        //will ignore it.
-        let author = (this.state.author) ? this.state.author : null;
-        let text = (this.state.text) ? this.state.text : null;
+        let id = this.props.uniqueID
+        let author = (this.state.author) ? this.state.author : null
+        let text = (this.state.text) ? this.state.text : null
         let account = (this.state.account) ? this.state.account : null
-        let comment = { author: author, text: text, account: account };
+        let comment = { author: author, text: text, account: account }
         this.props.onCommentUpdate(id, comment)
         this.setState({
             toBeUpdated: !this.state.toBeUpdated,
@@ -58,13 +55,11 @@ class Comment extends Component {
     render() {
         return (
             <div>
-                <h3>Name: {this.props.author}</h3>
+                <h5>Name: {this.props.author}</h5>
                 <span dangerouslySetInnerHTML={this.rawMarkup()} />
-                <h3>Account: {this.props.account}</h3>
-                {/*<a style={ style.updateLink } href='#' onClick={ this.updateComment }>update</a>*/}
-                {/*<a style={ style.deleteLink } href='#' onClick={ this.deleteComment }>delete</a>*/}
+                <h5>Account: {this.props.account}</h5>
                 <button href='#' onClick={this.updateComment}> Edit</button>
-                <button  href='#' onClick={this.deleteComment}> Delete</button>
+                <button href='#' onClick={this.deleteComment}> Delete</button>
                 {(this.state.toBeUpdated)
                     ? (<form onSubmit={this.handleCommentUpdate}>
                         <input

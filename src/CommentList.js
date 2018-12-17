@@ -3,22 +3,22 @@ import Comment from './Comment'
 
 class CommentList extends Component {
     render() {
-        let commentNodes = this.props.data.map(comment => {
+        let accountNodes = this.props.data.map(account => {
             return (
                 <Comment
-                    author={ comment.author }
-                    account ={ comment.account }
-                    uniqueID={ comment['_id'] }
+                    author={ account.author }
+                    account ={ account.account }
+                    uniqueID={ account['_id'] }
                     onCommentDelete={ this.props.onCommentDelete }
                     onCommentUpdate={ this.props.onCommentUpdate }
-                    key={ comment['_id'] }>
-                    { comment.text }
+                    key={ account['_id'] }>
+                    { account.text }
                 </Comment>
             )
         })
         return (
             <div >
-                { commentNodes }
+                { accountNodes }
             </div>
         )
     }

@@ -53,17 +53,10 @@ export default class App extends React.Component {
         }
     }
 
-    loadAccountsFromServer = () => {
-        axios.get(this.props.url)
-            .then(res => {
-                this.setState({ accounts: res.data });
-            })
-    }
-
     handleAccountDelete = (id) => {
         axios.delete(`${this.props.url}/${id}`)
             .then(res => {
-                console.log('Comment deleted');
+                console.log('Account deleted');
             })
             .catch(err => {
                 console.error(err);
@@ -154,27 +147,27 @@ export default class App extends React.Component {
     loadCommentsFromServer = () => {
         axios.get(this.props.url)
             .then(res => {
-                this.setState({ data: res.data });
+                this.setState({ data: res.data })
             })
     }
     handleCommentSubmit = (comment) => {
-        let comments = this.state.data;
-        comment.id = Date.now();
-        let newComments = comments.concat([comment]);
-        this.setState({ data: newComments });
+        let comments = this.state.data
+        comment.id = Date.now()
+        let newComments = comments.concat([comment])
+        this.setState({ data: newComments })
         axios.post(this.props.url, comment)
             .catch(err => {
-                console.error(err);
-                this.setState({ data: comments });
+                console.error(err)
+                this.setState({ data: comments })
             });
     }
     handleCommentDelete = (id) => {
         axios.delete(`${this.props.url}/${id}`)
             .then(res => {
-                console.log('Comment deleted');
+                console.log('Comment deleted')
             })
             .catch(err => {
-                console.error(err);
+                console.error(err)
             });
     }
     handleCommentUpdate = (id, comment) => {
@@ -229,7 +222,7 @@ export default class App extends React.Component {
                     categories={categories}
                 />
                 <div>
-                    <h2>Comments:</h2>
+                    <h2>Accounts:</h2>
                     <CommentList
                         onCommentDelete={this.handleCommentDelete}
                         onCommentUpdate={this.handleCommentUpdate}

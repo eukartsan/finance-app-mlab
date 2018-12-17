@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './component/App/App';
 
 ReactDOM.render(<App
-    url='http://localhost:3001/api/comments'
+    url='http://localhost:3001/api/finance'
     pollInterval={2000}
 />, document.getElementById('root'));
