@@ -1,0 +1,15 @@
+.main-items-list {
+    display: flex;
+    justify-content: center;
+}
+
+.main-items-lists {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-items-header {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

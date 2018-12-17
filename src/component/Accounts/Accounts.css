@@ -1,0 +1,33 @@
+.account-list {
+    padding: 15px 60px;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.account-items {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.account-items-name {
+    width: 190px;
+}
+
+.account-items-names {
+    width: 190px;
+    padding: 2px;
+}
+
+.account-buttons {
+    margin: auto 10px;
+    width: 60px;
+}
+
+.list-group-item {
+    margin-bottom: 0px;
+}

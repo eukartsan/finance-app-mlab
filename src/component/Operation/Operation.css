@@ -1,0 +1,56 @@
+.operation-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.select-item, .comment-value {
+  width: 250px;
+}
+
+.amount-label {
+  margin: 0px 0px 15px;
+  width: 250px;
+}
+
+.transaction-buttons {
+  width: 150px;
+  display: flex;
+  margin: 5px 0px 15px;
+  justify-content: space-around;
+}
+
+.transaction-title {
+  font-size: 15px;
+  display: flex;
+  align-content: start;
+}
+
+.transaction-amount {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+.transaction-amount label {
+  margin-bottom: 4px;
+}
+
+.transaction-checkbox {
+  display: flex;
+  width: 250px;
+  align-items: baseline;
+  margin-top: 8px;
+}
+
+.label-checkbox {
+  margin-left: 4px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.label {
+  margin-bottom: 0;
+}
