@@ -200,6 +200,14 @@ export default class App extends React.Component {
                             onCommentUpdate={this.handleAccountUpdate}
                         />
                     </div>
+                    <div className="app-header list-group-item">
+                        <h2>Balance</h2>
+                        <CommentForm onCommentSubmit={this.handleCommentSubmit} />
+                        <CommentList
+                            onCommentDelete={this.handleCommentDelete}
+                            onCommentUpdate={this.handleCommentUpdate}
+                            data={this.state.data} />
+                    </div>
                     <div>
                         <Operation
                             accountsList={accounts}
@@ -221,14 +229,6 @@ export default class App extends React.Component {
                     transactionMenu={transactionMenu}
                     categories={categories}
                 />
-                <div>
-                    <h2>Accounts:</h2>
-                    <CommentList
-                        onCommentDelete={this.handleCommentDelete}
-                        onCommentUpdate={this.handleCommentUpdate}
-                        data={this.state.data} />
-                    <CommentForm onCommentSubmit={this.handleCommentSubmit} />
-                </div>
             </div>
         )
     }

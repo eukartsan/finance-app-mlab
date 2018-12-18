@@ -4,8 +4,8 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
 var AccountsSchema = new Schema({
-    author: String,
-    text: String,
+    // author: String,
+    // text: String,
     account: String
 })
 

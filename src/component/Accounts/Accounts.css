@@ -31,3 +31,7 @@
 .list-group-item {
     margin-bottom: 0px;
 }
+
+.list-group-item-none {
+    display: none
+}

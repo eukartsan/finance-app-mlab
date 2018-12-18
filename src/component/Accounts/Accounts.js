@@ -92,7 +92,11 @@ export default class Accounts extends React.Component {
             })
 
         return (
-            <div className="app-header list-group-item">
+            <div className="app-header
+            list-group-item
+            list-group-item-none
+            "
+            >
                 <h3>Balance</h3>
                 <div>
                     <form onSubmit={this.addAccountName}>
