@@ -62,8 +62,8 @@ export default class App extends React.Component {
                 console.error(err);
             });
     }
-    handleAccountUpdate = (id, account) => {
-        axios.put(`${this.props.url}/${id}`, account)
+    handleAccountUpdate = (id, finance) => {
+        axios.put(`${this.props.url}/${id}`, finance)
             .catch(err => {
                 console.log(err)
             })
@@ -151,13 +151,13 @@ export default class App extends React.Component {
             })
     }
     handleCommentSubmit = (comment) => {
-        let comments = this.state.data
-        comment.id = Date.now()
-        let newComments = comments.concat([comment])
-        this.setState({ data: newComments })
+        let comments = this.state.data;
+        comment.id = Date.now();
+        let newComments = comments.concat([comment]);
+        this.setState({ data: newComments });
         axios.post(this.props.url, comment)
             .catch(err => {
-                console.error(err)
+                console.error(err);
                 this.setState({ data: comments })
             });
     }

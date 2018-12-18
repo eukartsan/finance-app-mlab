@@ -35,7 +35,6 @@ class Comment extends Component {
         e.preventDefault()
         let id = this.props.uniqueID
         this.props.onCommentDelete(id)
-        console.log('oops deleted')
     }
     handleTextChange = (e) => {
         this.setState({ text: e.target.value })
@@ -49,7 +48,7 @@ class Comment extends Component {
 
     rawMarkup() {
         let rawMarkup = marked(this.props.children.toString())
-        return { __html: rawMarkup };
+        return { __html: rawMarkup }
     }
 
     render() {

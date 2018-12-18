@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import CategoryAccounts from '../CategoryAccounts/CategoryAccounts';
 import './Operation.css';
+import axios from 'axios'
+import marked from 'marked'
 
 export default class Operation extends React.Component {
     static propTypes = {
@@ -10,10 +12,12 @@ export default class Operation extends React.Component {
         categories: PropTypes.array.isRequired,
     }
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
+            data: [],
+            toBeUpdated: false,
             amount: '',
             categoryName: '',
             comment: '',
@@ -22,6 +26,7 @@ export default class Operation extends React.Component {
             accountName: '',
         }
     }
+
 
     resetSelectedAccount = () => {
         this.selectedAccount.value = null
