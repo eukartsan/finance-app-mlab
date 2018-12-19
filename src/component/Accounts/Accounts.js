@@ -1,8 +1,10 @@
 import React from 'react'
 import './Accounts.css'
 import PropTypes from "prop-types";
+import { onAddAccount } from '../../actions/action'
+import { connect } from 'react-redux'
 
-export default class Accounts extends React.Component {
+class Accounts extends React.Component {
     static propTypes = {
         accountsList: PropTypes.array.isRequired,
         addAccount: PropTypes.func.isRequired,
@@ -49,8 +51,13 @@ export default class Accounts extends React.Component {
         setAccountActive(id)
     }
 
+    onAddAccount = (id) => (event) => {
+        event.preventDefault()
+        this.props.handleOnAddAccount(id)
+    }
+
     render() {
-        const { accountsList } = this.props,
+        const { accountsList, id } = this.props,
             { accountName } = this.state
 
         const account = accountsList
@@ -94,12 +101,14 @@ export default class Accounts extends React.Component {
         return (
             <div className="app-header
             list-group-item
-            list-group-item-none
+            {/*list-group-item-none*/}
             "
             >
                 <h3>Balance</h3>
                 <div>
-                    <form onSubmit={this.addAccountName}>
+                    <form
+                       // onSubmit={this.addAccountName}
+                        onSubmit={this.onAddAccount(id)}>
                         <label>
                             <span>Account name:</span>
                             <input name="newAccountName"
@@ -118,4 +127,10 @@ export default class Accounts extends React.Component {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        handleOnAddAccount: (id) => dispatch(onAddAccount(id))
+    }
+}
 
+export default connect(null, mapDispatchToProps)(Accounts)
