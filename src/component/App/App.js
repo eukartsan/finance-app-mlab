@@ -8,6 +8,7 @@ import HistoryTransactions from "../HistoryTransactions/HistoryTransactions";
 import './App.css';
 import CommentList from '../../CommentList'
 import CommentForm from '../../CommentForm'
+import { onAddNewAccount } from '../../actions/action'
 
 export default class App extends React.Component {
     constructor(props) {
@@ -15,12 +16,12 @@ export default class App extends React.Component {
 
         this.state = {
             data: [],
-            // accounts: [
-            //     { id: 'f19947e9-0638-4080-9706-900c8fd01c9d', accountName: '', active: false },
-            //     { id: uuidv4(), accountName: 'Mastercard 1', active: false },
-            //     { id: uuidv4(), accountName: 'Visa 2', active: false },
-            //     { id: uuidv4(), accountName: 'Card 3', active: false },
-            // ],
+            accounts: [
+                { id: uuidv4(), accountName: '123', active: false },
+                { id: uuidv4(), accountName: 'Mastercard 1', active: false },
+                { id: uuidv4(), accountName: 'Visa 2', active: false },
+                { id: uuidv4(), accountName: 'Card 3', active: false },
+            ],
             transactions: [
                 {
                     accountName: 'Mastercard 1',

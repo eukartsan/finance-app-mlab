@@ -1,7 +1,7 @@
 import React from 'react'
 import './Accounts.css'
 import PropTypes from "prop-types";
-import { onAddAccount } from '../../actions/action'
+import { onAddNewAccount, onDeleteCounter } from '../../actions/action'
 import { connect } from 'react-redux'
 
 class Accounts extends React.Component {
@@ -20,6 +20,16 @@ class Accounts extends React.Component {
             accountName: '',
             isMenuOpen: ''
         };
+    }
+
+    onAddNewAccount = (id) => (event) => {
+        event.preventDefault()
+        this.props.handleOnAddAccount(id)
+    }
+
+    onDeleteCounter = (id) => (event) => {
+        event.preventDefault()
+        this.props.handleOnDeleteAccount(id)
     }
 
     addAccountName = (event) => {
@@ -97,7 +107,6 @@ class Accounts extends React.Component {
                     }
                 </li>)
             })
-
         return (
             <div className="app-header
             list-group-item
@@ -123,13 +132,28 @@ class Accounts extends React.Component {
                 <ul className="list-group-item">
                     {account}
                 </ul>
-            </div>)
+                <div>
+                    <form onSubmit={this.onAddNewAccount(id)}>
+                        <input
+                            type="submit"
+                            value="Add Account" />
+                    </form>
+                    <button className="account-buttons"
+                            onClick={this.onDeleteCounter(id)}>
+                        Delete
+                    </button>
+                </div>
+            </div>
+
+
+        )
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleOnAddAccount: (id) => dispatch(onAddAccount(id))
+        handleOnAddAccount: (id) => dispatch(onAddNewAccount(id)),
+        handleOnDeleteAccount: (id) => dispatch(onDeleteCounter(id))
     }
 }
 
